@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>rock paper scissor clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>rock paper scissor game</h1>
+    <div class="play-btn">
+        <button class="rock btn" onclick="play('rock')">
+            <img src="images/rock.png" alt="rock">
+        </button>
+        <button class="paper btn" onclick="play('paper')">
+            <img src="images/paper.png" alt="paper">
+        </button>
+        <button class="scissor btn" onclick="play('scissor')">
+            <img class="btn-img" src="images/scissor.png" alt="scissor">
+        </button>
+    </div>
+
+    <div class="score">
+        <p class="my-choice"></p>
+        <p class="com-choice"></p>
+        <p class="winner"></p>
+        <p class="score-display"></p>
+        <button class="reset btn" onclick="reset()">reset score</button>
+    </div>
+
+
+
+    <script>
+        //    global scope object
+        let score = JSON.parse(localStorage.getItem('score')) || {
+            won: 0,
+            lost: 0,
+            draw: 0,
+        };
+        score.displayscore = function () {
+            document.querySelector('.score-display').innerHTML = `user has won:${score.won}, Losses: ${score.lost}, Draws: ${score.draw}`;
+        }
+
+        //  function to produce computer choice
+        function generateComputerChoice() {
+            let ComChoice = Math.floor(Math.random() * 3);
+            let ComSelect;
+            if (ComChoice > 0 && ComChoice <= 1) {
+                ComSelect = 'rock';
+            } else if (ComChoice > 1 && ComChoice <= 2) {
+                ComSelect = 'paper';
+            } else {
+                ComSelect = 'scissor';
+            } document.querySelector('.com-choice').innerHTML = `computer choosen  ${ComSelect}`;
+            return ComSelect;
+        }
+
+        // function to get results
+        function resultMsg(userMove, comMove) {
+            if (userMove === comMove) {
+                document.querySelector('.winner').innerHTML = `' it's an draw' `;
+                score.draw++;
+            } else if ((userMove === 'rock' && comMove === 'scissor') ||
+                (userMove === 'paper' && comMove === 'rock') ||
+                (userMove === 'scissor' && comMove === 'paper')) {
+                document.querySelector('.winner').innerHTML = `'you won'`;
+                score.won++;
+            } else {
+                document.querySelector('.winner').innerHTML = `'computer won'`;
+                score.lost++;
+            }
+            `${score.displayscore()}`;
+        }
+
+        //  function to work onclick
+        function play(userMove) {
+            document.querySelector('.my-choice').innerHTML = `You have chosen ${userMove}`;
+            let comSelect = generateComputerChoice();
+            resultMsg(userMove, comSelect);
+            localStorage.setItem('score', JSON.stringify(score));
+        }
+
+        function reset() {
+            localStorage.clear();
+            score.won = 0;
+            score.lost = 0;
+            score.draw = 0;
+            score.displayscore();
+        }
+
+        window.onload = function () {
+            score.displayscore();
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+h1{
+    font-size: 60px;
+    text-align: center;
+}
+
+.play-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.play-btn .btn{
+    width: 90px;
+    height: 70px;
+    margin-left: 45px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.play-btn img {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.score{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+
+}
+.com-choice{
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+.winner{
+    margin-bottom: 40px;
+}
+.score .reset{
+    width: 90px;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 20px;
+}

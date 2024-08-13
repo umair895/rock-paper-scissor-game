@@ -1,0 +1,70 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>rock paper scissor game</title>
+    <link rel="stylesheet" href="RPSgame.css">
+</head>
+<body>
+    <h1>rock paper scissor game</h1> 
+    <div class="play-btn">
+        <button class="rock btn" onclick="
+            document.querySelector('.my-choice').innerHTML = 'you have chosen rock';
+            let ComSelect =generateComputerChoice();
+            if(ComSelect === 'paper'){
+                document.querySelector('.winner').innerHTML = `'computer has won'`;
+            }else if(ComSelect === 'rock'){
+                document.querySelector('.winner').innerHTML = `' it's an draw' `;
+            }else if(ComSelect === 'scissor'){
+                document.querySelector('.winner').innerHTML = `'you won'`;
+            }">rock</button>
+
+
+        <button class="paper btn"
+        onclick="{
+            document.querySelector('.my-choice').innerHTML = 'you have chosen paper';
+            ComSelect = generateComputerChoice();
+            if(ComSelect === 'scissor'){
+                document.querySelector('.winner').innerHTML = `'computer has won'`;
+            }else if(ComSelect === 'paper'){
+                document.querySelector('.winner').innerHTML = `' it's an draw' `;
+            }else if(ComSelect === 'rock'){
+                document.querySelector('.winner').innerHTML = `'you won'`;
+            }}">paper</button>
+
+        <button class="scissor btn" onclick="{
+        document.querySelector('.my-choice').innerHTML = 'you have chosen scissor';
+          ComSelect = generateComputerChoice();
+        if(ComSelect === 'rock'){
+            document.querySelector('.winner').innerHTML = `'computer has won'`;
+        }else if(ComSelect === 'scissor'){
+            document.querySelector('.winner').innerHTML = `' it's an draw' `;
+        }else if(ComSelect === 'paper'){
+            document.querySelector('.winner').innerHTML = `'you won'`;
+        }}">scissor</button>
+    </div>  
+    <div class="score">
+        <p class="my-choice"></p>
+        <p class="com-choice"></p>
+        <p class="winner"></p>
+    </div> 
+
+
+    <script>
+        
+        function generateComputerChoice(){
+            let ComChoice = Math.random()*3;
+            let ComSelect;
+            if (ComChoice >0 && ComChoice <=1 ){
+                 ComSelect = 'rock';
+            }else if (ComChoice >1 && ComChoice <= 2 ){
+                 ComSelect = 'paper'; 
+            }else {
+                 ComSelect = 'scissor';
+            }document.querySelector('.com-choice').innerHTML = `computer choosen  ${ComSelect}`;
+            return ComSelect;
+        }
+    </script>
+
+</body>
+</html> -->
+ 
